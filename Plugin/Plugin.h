@@ -13,18 +13,7 @@ public:
 	DLL_EXPORT virtual ~APlugin() = 0
 	{};
 
-	DLL_EXPORT void link(std::vector<APlugin*>* consummers);
-	DLL_EXPORT void send();
-
-	DLL_EXPORT virtual void receive(std::shared_ptr<AEvent>) = 0;
-	DLL_EXPORT virtual std::string getEventType() = 0;
 	DLL_EXPORT virtual void unregisterPlugin() = 0;
-
-protected:
-	DLL_EXPORT virtual std::shared_ptr<AEvent> _createEvent() = 0;
-
-private:
-	std::vector<APlugin*> _consummers;
 };
 
 struct PluginDetails

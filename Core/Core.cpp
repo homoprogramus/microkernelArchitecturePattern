@@ -40,9 +40,8 @@ void Core::loadPlugin(std::string path)
 
 	APlugin* plugin = details->initializeFunction();
 	std::string eventType = plugin->getEventType();
-	//std::vector<APlugin*>* consummers = &(_consummers.at(eventType));
-	//plugin->link(consummers);
-	int o = 0;
+	std::vector<APlugin*>* consummers = &(_consummers.at(eventType));
+	plugin->link(consummers);
 }
 
 void Core::unloadPlugins()
